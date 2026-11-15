@@ -1,0 +1,493 @@
+body {
+    background: linear-gradient(
+        135deg,
+        #080B2C,
+        #242060,
+        #542477
+    );
+
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+}
+
+
+
+
+/* ==================================
+   STARRY BACKGROUND
+   ================================== */
+
+body {
+    position: relative;
+    isolation: isolate;
+}
+
+/* Soft, glowing stars */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: -30px;
+
+    background-image:
+        radial-gradient(circle at 10% 15%,
+            rgba(255,255,255,0.9) 0px,
+            rgba(255,255,255,0.4) 1px,
+            transparent 3px),
+
+        radial-gradient(circle at 25% 35%,
+            rgba(220,210,255,0.9) 0px,
+            rgba(220,210,255,0.3) 2px,
+            transparent 5px),
+
+        radial-gradient(circle at 45% 10%,
+            rgba(255,255,255,0.8) 0px,
+            transparent 3px),
+
+        radial-gradient(circle at 70% 25%,
+            rgba(200,220,255,0.9) 0px,
+            rgba(200,220,255,0.3) 2px,
+            transparent 5px),
+
+        radial-gradient(circle at 85% 55%,
+            rgba(255,255,255,0.8) 0px,
+            transparent 3px),
+
+        radial-gradient(circle at 15% 75%,
+            rgba(220,210,255,0.9) 0px,
+            transparent 4px),
+
+        radial-gradient(circle at 55% 80%,
+            rgba(255,255,255,0.9) 0px,
+            rgba(255,255,255,0.3) 2px,
+            transparent 5px),
+
+        radial-gradient(circle at 90% 90%,
+            rgba(200,220,255,0.8) 0px,
+            transparent 3px);
+
+    background-size: 300px 300px;
+    opacity: 0.8;
+
+    pointer-events: none;
+    z-index: 0;
+
+    animation: starDrift 18s ease-in-out infinite;
+}
+
+/* Keep website content above the stars */
+
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Gentle movement and twinkling */
+
+@keyframes starDrift {
+    0%, 100% {
+        transform: translate(0, 0);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translate(-15px, 10px);
+        opacity: 0.4;
+    }
+}
+
+/* Accessibility: reduce animation if requested */
+
+@media (prefers-reduced-motion: reduce) {
+    body::before {
+        animation: none;
+    }
+}
+
+
+
+/* Header style */
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 64px;
+    font-weight: normal;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 40px;
+    font-weight: normal;
+    text-align: center;
+}
+
+p {
+    font-family: 'Great Vibes', cursive;
+    font-size: 32px;
+    font-weight: normal;
+    text-align: center;
+}
+
+
+
+
+/* Short intro and about me */
+
+.intro-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.intro-section p {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.intro-section .about-button {
+    margin-top: 10px;
+}
+
+/* Author info */
+
+.author-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 50px 20px;
+}
+
+.author-photo {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #b8a4e3;
+}
+
+@media (max-width: 600px) {
+    .author-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+.author-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.author-text h1 {
+    margin-bottom: 5px;
+}
+
+.author-text h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+
+/* Photos like constellation */
+
+.constellation {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.constellation svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+
+/* ==================================
+   INTERACTIVE CONSTELLATION
+   ================================== */
+
+/* Make photographs clickable */
+
+/* Interactive constellation photographs */
+.constellation-photo {
+    cursor: pointer;
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: transform 0.35s ease,
+                filter 0.35s ease;
+}
+
+.constellation-photo:hover,
+.constellation-photo:focus-visible {
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 12px #c9b8ff)
+            drop-shadow(0 0 22px #8873d6);
+}
+
+/* Keep the central photograph's zoom more subtle */
+
+.constellation-photo[data-photo="1"]:hover,
+.constellation-photo[data-photo="1"]:focus-visible {
+    transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .constellation-photo {
+        transition: none;
+    }
+}
+
+
+/* Invitation to explore the constellation */
+
+.constellation-hint {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    font-style: italic;
+    text-align: center;
+
+    color: #d8c8ff;
+    letter-spacing: 1px;
+
+    margin: 0 auto 50px;
+    padding: 0 15px;
+}
+
+
+
+/* Expanded photograph overlay */
+
+.photo-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    background: rgba(5, 7, 25, 0.92);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+    box-sizing: border-box;
+
+    overflow-y: auto;
+}
+
+/* Ensure the hidden modal stays hidden */
+
+.photo-modal[hidden] {
+    display: none;
+}
+
+/* Photograph and quotation */
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    max-width: 750px;
+    width: 100%;
+
+    animation: photoAppear 0.5s ease;
+}
+
+.modal-content img {
+    display: block;
+    max-width: 100%;
+    max-height: 65vh;
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 15px;
+    border: 2px solid #b8a4e3;
+
+    box-shadow: 0 0 35px rgba(184, 164, 227, 0.35);
+}
+
+/* Book quotation */
+
+#modal-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-style: italic;
+
+    color: #e8dcff;
+
+    line-height: 1.5;
+    margin-top: 30px;
+}
+
+/* Close button */
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    background: transparent;
+    border: none;
+
+    color: white;
+    font-size: 40px;
+
+    cursor: pointer;
+    z-index: 2;
+}
+
+.modal-close:hover {
+    color: #c9b8ff;
+}
+
+.modal-close:focus-visible,
+.constellation-photo:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 5px;
+}
+
+/* Smooth appearance */
+
+@keyframes photoAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .modal-content {
+        animation: none;
+    }
+
+    .constellation-photo image {
+        transition: none;
+    }
+}
+
+/* Smaller screens */
+
+@media (max-width: 600px) {
+    #modal-quote {
+        font-size: 22px;
+    }
+
+    .photo-modal {
+        padding: 20px;
+    }
+}
+
+
+
+/* About me button */
+.about-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 28px;
+
+    background: transparent;
+    color: #e8dcff;
+
+    border: 2px solid #b8a4e3;
+    border-radius: 30px;
+
+    font-family: 'Great Vibes', cursive;
+    font-size: 28px;
+
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.about-button:hover {
+    background: #b8a4e3;
+    color: #080B2C;
+    box-shadow: 0 0 20px rgba(184, 164, 227, 0.5);
+}
+
+.about-button:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 4px;
+}
+
+
+.about-text {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1.8;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 0 20px;
+    
+}
+
+
+/* Venn diagram */
+
+.venn-section {
+    max-width: 1000px;
+    margin: 70px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.venn-section h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 44px;
+    font-weight: normal;
+    color: #e8dcff;
+    margin-bottom: 30px;
+}
+
+.venn-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.venn-container svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+
+/* contact me */
+
+
+.contact-section {
+    text-align: center;
+    margin: 50px auto;
+}
+
+#contact-email {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: #e8dcff;
+    margin-top: 20px;
+}
+
+#contact-email a {
+    color: #e8dcff;
+}
+
+
