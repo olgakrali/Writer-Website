@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Author Website</title>
+    <title>OlgaKrali.Writer</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
 </head>
 <body>
+
+
 
     <div class="author-header">
         <div class="author-text">
@@ -29,165 +31,196 @@
         <a href="about.html" class="about-button">
             My intercosmic journey
         </a>
+        <p class="constellation-hint">
+            ✦ Click a star and make a wish. 
+            <br> 
+            Discover bits of my first story.✦
+        </p>
+
     </div>
 
 
-    <div class="constellation">
+    
+<div class="constellation">
 
-        <svg viewBox="0 0 900 900"
-            xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 900 900"
+         xmlns="http://www.w3.org/2000/svg">
 
-            <!-- Circular photo masks -->
-            <defs>
-                <clipPath id="main-circle">
-                    <circle cx="450" cy="420" r="190"/>
-                </clipPath>
+        <!-- Circular photo masks -->
+        <defs>
+            <clipPath id="main-circle">
+                <circle cx="450" cy="420" r="150"/>
+            </clipPath>
 
-                <clipPath id="circle-2">
-                    <circle cx="460" cy="85" r="30"/>
-                </clipPath>
+            <clipPath id="circle-2">
+                <circle cx="460" cy="85" r="55"/>
+            </clipPath>
 
-                <clipPath id="circle-3">
-                    <circle cx="125" cy="220" r="38"/>
-                </clipPath>
+            <clipPath id="circle-3">
+                <circle cx="125" cy="220" r="65"/>
+            </clipPath>
 
-                <clipPath id="circle-4">
-                    <circle cx="775" cy="210" r="32"/>
-                </clipPath>
+            <clipPath id="circle-4">
+                <circle cx="775" cy="210" r="60"/>
+            </clipPath>
 
-                <clipPath id="circle-5">
-                    <circle cx="95" cy="565" r="42"/>
-                </clipPath>
+            <clipPath id="circle-5">
+                <circle cx="95" cy="565" r="70"/>
+            </clipPath>
 
-                <clipPath id="circle-6">
-                    <circle cx="810" cy="560" r="35"/>
-                </clipPath>
+            <clipPath id="circle-6">
+                <circle cx="810" cy="560" r="65"/>
+            </clipPath>
 
-                <clipPath id="circle-7">
-                    <circle cx="415" cy="785" r="45"/>
-                </clipPath>
-            </defs>
+            <clipPath id="circle-7">
+                <circle cx="415" cy="785" r="70"/>
+            </clipPath>
+        </defs>
+        <!-- Constellation lines: drawn over photos -->
+        <g stroke="#c9b8ff"
+           stroke-width="2.5"
+           stroke-linecap="round"
+           opacity="0.8"
+           pointer-events="none">
 
-            <!-- Constellation lines -->
-            <g stroke="#c9b8ff"
-            stroke-width="3">
+            <!-- Top connections -->
+            <line x1="460" y1="85" x2="125" y2="220"/>
+            <line x1="460" y1="85" x2="775" y2="210"/>
 
-                <line x1="450" y1="230" x2="460" y2="85"/>
-                <line x1="275" y1="330" x2="125" y2="220"/>
-                <line x1="625" y1="330" x2="775" y2="210"/>
-                <line x1="270" y1="495" x2="95" y2="565"/>
-                <line x1="630" y1="495" x2="810" y2="560"/>
-                <line x1="450" y1="610" x2="415" y2="785"/>
-            </g>
+            <!-- Outer side connections -->
+            <line x1="125" y1="220" x2="95" y2="565"/>
+            <line x1="775" y1="210" x2="810" y2="560"/>
 
-            <!-- Photo 1: central circle -->
-            <g class="constellation-photo"
-            data-photo="1"
-            role="button"
-            tabindex="0"
-            aria-label="Open photograph 1">
+            <!-- Bottom connections -->
+            <line x1="95" y1="565" x2="415" y2="785"/>
+            <line x1="810" y1="560" x2="415" y2="785"/>
 
-                <image href="photos/image1.jpeg"
-                    x="260" y="230"
-                    width="380" height="380"
-                    preserveAspectRatio="xMidYMid slice"
-                    clip-path="url(#main-circle)"/>
-            </g>
-            <!-- Photo 2: top -->
-            <g class="constellation-photo"
-                data-photo="2"
-                role="button"
-                tabindex="0"
-                aria-label="Open photograph 2">
+            <!-- Central connections -->
+            <line x1="125" y1="220" x2="450" y2="420"/>
+            <line x1="450" y1="420" x2="810" y2="560"/>
+            <line x1="450" y1="420" x2="415" y2="785"/>
 
-                    <image href="photos/image2.jpeg"
-                        x="430" y="55"
-                        width="60" height="60"
-                        preserveAspectRatio="xMidYMid slice"
-                        clip-path="url(#circle-2)"/>
+        </g>
+        <!-- Photo 1: central -->
+        <g class="constellation-photo"
+           data-photo="1"
+           role="button"
+           tabindex="0"
+           aria-label="Open photograph 1">
 
-            </g>
+            <image href="photos/image1.jpeg"
+                   x="300" y="270"
+                   width="300" height="300"
+                   preserveAspectRatio="xMidYMid slice"
+                   clip-path="url(#main-circle)"/>
+        </g>
 
-            <!-- Photo 3: upper left -->
-            <g class="constellation-photo"
-                data-photo="3"
-                role="button"
-                tabindex="0"
-                aria-label="Open photograph 3">
+        
 
-                <image href="photos/image3.jpeg"
-                    x="87" y="182"
-                    width="76" height="76"
-                    preserveAspectRatio="xMidYMid slice"
-                    clip-path="url(#circle-3)"/>
-            </g>
+        <!-- Photo 2: top -->
+        <g class="constellation-photo"
+           data-photo="2"
+           role="button"
+           tabindex="0"
+           aria-label="Open photograph 2">
 
-            <!-- Photo 4: upper right -->
-            <g class="constellation-photo"
-                data-photo="4"
-                role="button"
-                tabindex="0"
-                aria-label="Open photograph 4">
-                <image href="photos/image4.jpeg"
-                    x="743" y="178"
-                    width="64" height="64"
-                    preserveAspectRatio="xMidYMid slice"
-                    clip-path="url(#circle-4)"/>
-            </g>
+            <image href="photos/image2.jpeg"
+                   x="405" y="30"
+                   width="110" height="110"
+                   preserveAspectRatio="xMidYMid slice"
+                   clip-path="url(#circle-2)"/>
+        </g>
 
-            <!-- Photo 5: lower left -->
-             <g class="constellation-photo"
-                data-photo="5"
-                role="button"
-                tabindex="0"
-                aria-label="Open photograph 5">
-                <image href="photos/image5.jpeg"
-                    x="53" y="523"
-                    width="84" height="84"
-                    preserveAspectRatio="xMidYMid slice"
-                    clip-path="url(#circle-5)"/>
-            </g>
+        <!-- Photo 3: upper left -->
+        <g class="constellation-photo"
+           data-photo="3"
+           role="button"
+           tabindex="0"
+           aria-label="Open photograph 3">
 
-            <!-- Photo 6: lower right -->
-             <g class="constellation-photo"
-                data-photo="6"
-                role="button"
-                tabindex="0"
-                aria-label="Open photograph 6">            
-                <image href="photos/image6.jpeg"
-                    x="775" y="525"
-                    width="70" height="70"
-                    preserveAspectRatio="xMidYMid slice"
-                    clip-path="url(#circle-6)"/>
-            </g>
-            <!-- Photo 7: bottom -->
-             <g class="constellation-photo"
-                data-photo="7"
-                role="button"
-                tabindex="0"
-                aria-label="Open photograph 7">
-                <image href="photos/image7.jpeg"
-                    x="370" y="740"
-                    width="90" height="90"
-                    preserveAspectRatio="xMidYMid slice"
-                    clip-path="url(#circle-7)"/>
-            </g>
-            <!-- Circle outlines -->
-            <g fill="none"
-            stroke="#c9b8ff"
-            stroke-width="4">
+            <image href="photos/image3.jpeg"
+                   x="60" y="155"
+                   width="130" height="130"
+                   preserveAspectRatio="xMidYMid slice"
+                   clip-path="url(#circle-3)"/>
+        </g>
 
-                <circle cx="450" cy="420" r="190"/>
-                <circle cx="460" cy="85" r="30"/>
-                <circle cx="125" cy="220" r="38"/>
-                <circle cx="775" cy="210" r="32"/>
-                <circle cx="95" cy="565" r="42"/>
-                <circle cx="810" cy="560" r="35"/>
-                <circle cx="415" cy="785" r="45"/>
-            </g>
+        <!-- Photo 4: upper right -->
+        <g class="constellation-photo"
+           data-photo="4"
+           role="button"
+           tabindex="0"
+           aria-label="Open photograph 4">
 
-        </svg>
-    </div>
+            <image href="photos/image4.jpeg"
+                   x="715" y="150"
+                   width="120" height="120"
+                   preserveAspectRatio="xMidYMid slice"
+                   clip-path="url(#circle-4)"/>
+        </g>
+
+        <!-- Photo 5: lower left -->
+        <g class="constellation-photo"
+           data-photo="5"
+           role="button"
+           tabindex="0"
+           aria-label="Open photograph 5">
+
+            <image href="photos/image5.jpeg"
+                   x="25" y="495"
+                   width="140" height="140"
+                   preserveAspectRatio="xMidYMid slice"
+                   clip-path="url(#circle-5)"/>
+        </g>
+
+        <!-- Photo 6: lower right -->
+        <g class="constellation-photo"
+           data-photo="6"
+           role="button"
+           tabindex="0"
+           aria-label="Open photograph 6">
+
+            <image href="photos/image6.jpeg"
+                   x="745" y="495"
+                   width="130" height="130"
+                   preserveAspectRatio="xMidYMid slice"
+                   clip-path="url(#circle-6)"/>
+        </g>
+
+        <!-- Photo 7: bottom -->
+        <g class="constellation-photo"
+           data-photo="7"
+           role="button"
+           tabindex="0"
+           aria-label="Open photograph 7">
+
+            <image href="photos/image7.jpeg"
+                   x="345" y="715"
+                   width="140" height="140"
+                   preserveAspectRatio="xMidYMid slice"
+                   clip-path="url(#circle-7)"/>
+        </g>
+
+        <!-- Circle outlines -->
+        <g fill="none"
+           stroke="#c9b8ff"
+           stroke-width="4"
+           pointer-events="none">
+
+            <circle cx="450" cy="420" r="150"/>
+            <circle cx="460" cy="85" r="55"/>
+            <circle cx="125" cy="220" r="65"/>
+            <circle cx="775" cy="210" r="60"/>
+            <circle cx="95" cy="565" r="70"/>
+            <circle cx="810" cy="560" r="65"/>
+            <circle cx="415" cy="785" r="70"/>
+        </g>
+
+        
+
+    </svg>
+</div>
+
 
 <!-- Expanded photograph and book quotation -->
 
@@ -215,6 +248,7 @@
     </div>
 
 </div>
+
 
 
 
@@ -261,32 +295,38 @@
 
         2: {
             image: "photos/image2.jpeg",
-            quote: "Your second quotation goes here."
+            quote: `The moment you meet the one to care for your soul, 
+            that's when you're ready to set free.`
         },
 
         3: {
             image: "photos/image3.jpeg",
-            quote: "Your third quotation goes here."
+            quote: `I run to the shore, picking up a handful of flawed pebbles. I cast one of them against the water, 
+            using my favorite technique, the little frogs. The flat rock jumps more than ten times before it gets lost 
+            at the bottom of the sea. "Perfect score!" I proudly shout out. `
         },
 
         4: {
             image: "photos/image4.jpeg",
-            quote: "Your fourth quotation goes here."
+            quote: `Fear consumes me as I realize that I'm about to miss a wish. Some scientist I am. But even us, carry embarrassing secrets. 
+I shut my eyes so hard that my temple hurts. "I don't normally ask for things but tonight I want to be selfish." `
         },
 
         5: {
             image: "photos/image5.jpeg",
-            quote: "Your fifth quotation goes here."
+            quote: "I grab the first shell I see and press it against my ear. What was once a childhood habit is the only thing that can bring me solace in this alien reality of ours."
         },
 
         6: {
             image: "photos/image6.jpeg",
-            quote: "Your sixth quotation goes here."
+            quote:  `"Why don't you join me in the back? Steer the boat like you used to do?" 
+"I'll pass." I lay with my belly, my head facing the deep blue. `
         },
 
         7: {
             image: "photos/image7.jpeg",
-            quote: "Your seventh quotation goes here."
+            quote: `"Happy birthday my love. I love you for as long as our universes exist.
+            Stay strong as your flower."`
         }
     };
 
@@ -375,6 +415,9 @@
 
 
 
+<footer class="site-footer">
+    <p>© 2026 Olga Krali. All rights reserved.</p>
+</footer>
         
 
 </body>
