@@ -285,7 +285,11 @@ p {
     transition: transform 0.35s ease,
                 filter 0.35s ease;
 }
-
+/* remove some fine lines in the main figure */
+.constellation-photo {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
 .constellation-photo:hover,
 .constellation-photo:focus-visible {
     transform: scale(1.12);
