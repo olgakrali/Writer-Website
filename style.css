@@ -1,9 +1,10 @@
 body {
-    background: linear-gradient(
+    background: var(--sky-background,
+    linear-gradient(
         135deg,
         #080B2C,
         #242060,
-        #542477
+        #542477)
     );
 
     color: white;
@@ -11,6 +12,67 @@ body {
     margin: 0;
 }
 
+
+:root {
+    --sky-background: linear-gradient(
+        135deg,
+        #080B2C,
+        #242060,
+        #542477
+    );
+}
+
+body {
+    background: var(--sky-background);
+    min-height: 100vh;
+}
+
+
+
+/* Star-shaped cursor */
+@media (pointer: fine) {
+    body {
+        cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 Q18 14 30 16 Q18 18 16 30 Q14 18 2 16 Q14 14 16 2Z' fill='%23E6D8FF' stroke='%239B83D2' stroke-width='1.2'/%3E%3C/svg%3E") 16 16, auto;
+    }
+}
+
+
+
+
+.author-photo {
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+
+/* Elegant shooting star */
+
+body > .shooting-star {
+    position: fixed;
+    top: 35%;
+    left: 85%;
+
+    width: 100px;
+    height: 1px;
+
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(184, 164, 227, 0.15) 30%,
+        rgba(210, 200, 255, 0.65) 75%,
+        white 100%
+    );
+
+    border-radius: 50%;
+
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0;
+
+    transform-origin: right center;
+    animation: meteorFlight 15s linear infinite;
+}
 
 
 
@@ -195,7 +257,7 @@ p {
 
 .constellation {
     width: 100%;
-    max-width: 900px;
+    max-width: 1500px;
     margin: 40px auto;
     padding: 0 10px;
     box-sizing: border-box;
@@ -260,8 +322,12 @@ p {
     padding: 0 15px;
 }
 
-
-
+/* Discourage dragging and selecting photographs */
+.constellation-photo image,
+#modal-image {
+    -webkit-user-drag: none;
+    user-select: none;
+}
 /* Expanded photograph overlay */
 
 .photo-modal {
@@ -491,3 +557,18 @@ p {
 }
 
 
+
+.site-footer {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: #c9b8ff;
+    text-align: center;
+    opacity: 0.7;
+    padding: 25px 20px;
+    margin-top: 60px;
+}
+
+.site-footer p {
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}

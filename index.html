@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
 </head>
+<script src="sky.js"></script>
 <body>
 
 
@@ -20,7 +21,10 @@
          </div>
         <img src="./photos/KraliOlga.jpg"
             alt="Portrait of the author"
-            class="author-photo">
+            class="author-photo"
+            draggable="false">
+
+        
     </div>
 
 
@@ -32,9 +36,9 @@
             My intercosmic journey
         </a>
         <p class="constellation-hint">
-            ✦ Click a star and make a wish. 
+            ✦ Click a star and take a breath. 
             <br> 
-            Discover bits of my first story.✦
+            Some wishes don't stay on Earth.✦
         </p>
 
     </div>
@@ -252,36 +256,36 @@
 
 
 
-    <div class="contact-section">
-        <button class="about-button" id="contact-button"
-                type="button">
-            Contact Me
-        </button>
+<div class="contact-section">
+    <button class="about-button" id="contact-button"
+            type="button">
+        Contact Me
+    </button>
 
-        <p id="contact-email" hidden></p>
-    </div>
+    <p id="contact-email" hidden></p>
+</div>
 
-    <script>
-        const contactButton =
-            document.getElementById("contact-button");
+<script>
+    const contactButton =
+        document.getElementById("contact-button");
 
-        const contactEmail =
-            document.getElementById("contact-email");
+    const contactEmail =
+        document.getElementById("contact-email");
 
-        contactButton.addEventListener("click", function() {
-            const username = "olga.krali";
-            const domain = "icloud.com";
+    contactButton.addEventListener("click", function() {
+        const username = "olga.krali";
+        const domain = "icloud.com";
 
-            const email = username + "@" + domain;
+        const email = username + "@" + domain;
 
-            const link = document.createElement("a");
-            link.href = "mailto:" + email;
-            link.textContent = email;
+        const link = document.createElement("a");
+        link.href = "mailto:" + email;
+        link.textContent = email;
 
-            contactEmail.replaceChildren(link);
-            contactEmail.hidden = false;
-        });
-    </script>
+        contactEmail.replaceChildren(link);
+        contactEmail.hidden = false;
+    });
+</script>
 
 
 <script>
@@ -410,7 +414,30 @@ I shut my eyes so hard that my temple hurts. "I don't normally ask for things bu
             closeButton.focus();
         }
     });
+
+
+
+    // Disable right-click on constellation and pop-up photographs
+    document.querySelectorAll(".constellation-photo, #modal-image")
+        .forEach(element => {
+            element.addEventListener("contextmenu", function(event) {
+                event.preventDefault();
+            });
+        });
+
+    // Disable right-click on author portrait
+    document.querySelectorAll(".author-photo")
+        .forEach(photo => {
+            photo.addEventListener("contextmenu", event => {
+                event.preventDefault();
+            });
+        });
+        
+
 </script>
+
+
+
 
 
 
